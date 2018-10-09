@@ -1,6 +1,6 @@
 # Firehose
 
-Use firehose to stream twitter updates into s3 
+Use firehose to stream twitter updates into s3
 
 ## Prerequisites
 Install and configure the aws cli following the instructions here
@@ -11,6 +11,8 @@ Install and configure the aws cli following the instructions here
 Create an S3 bucket to store the scraped Twitter data
 
 ## create IAM policies
+In firehose_policy.json, replace account_id with your AWS account. 
+
 In s3_rw_policy.json replace DEMO_BUCKET_NAME with the name of the bucket created above
 
 Run the commands to create the policies
@@ -20,7 +22,3 @@ aws iam create-role --role-name firehose_delivery_role --assume-role-policy-docu
 
 aws iam put-role-policy --role-name firehose_delivery_role --policy-name firehose-s3-rw --policy-document file://s3-rw-policy.json
 ```
-
-
-
- 
