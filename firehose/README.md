@@ -2,7 +2,7 @@
 
 Use firehose to stream twitter updates into s3 
 
-##Prerequisites
+## Prerequisites
 Install and configure the aws cli following the instructions here
 
    [Install and Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
