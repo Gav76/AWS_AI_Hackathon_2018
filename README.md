@@ -4,12 +4,12 @@ This is the repo for entry into the [AWS AI Hackathon](https://aws.amazon.com/ma
 The basic premise was to build a pipeline where you can provide an image containing some text and have the text extracted, language identified, sentiment evaluated and a translation into English provided if needed.  There are some real-world use-cases where this could be useful, ie.
 
 ### Tools used
-Python
-AWS Lambda
-AWS Rekognition
-AWS Comprehend
-AWS Simple Email Service (SES)
-AWS S3
+1. Python
+2. AWS Lambda
+3. AWS Rekognition
+4. AWS Comprehend
+5. AWS Simple Email Service (SES)
+6. AWS S3
 
 ## Flow
 
