@@ -13,7 +13,7 @@ AWS S3
 
 ## Flow
 
-![alt text][workflow.png]
+![Workflow](https://github.com/Gav76/AWS_AI_Hackathon_2018/blob/master/workflow.png)
 
 ### Known Limitations.
 The [AWS Rekognition Detect Text Action](https://docs.aws.amazon.com/rekognition/latest/dg/text-detection.html) can only detect 50 words from a single image.
