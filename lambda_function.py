@@ -40,9 +40,11 @@ def lambda_handler(event, context):
             else:
                 detectedSentiment = 'Sorry, only English and Spanish are currently supported for sentiment detection'
 
+            translatedText = translate_text(detectedText, detectedLanguage)
+
             cleanup_files(s3bucket, s3object, s3bucketTemp, filename)
 
-            send_return_mail(msg_from, msg_subject, BODY_TEXT_ERROR, detectedText, detectedLanguage, detectedSentiment)
+            send_return_mail(msg_from, msg_subject, BODY_TEXT_ERROR, detectedText, detectedLanguage, detectedSentiment, translatedText)
 
         else:
             #not an attachment
@@ -55,7 +57,7 @@ def lambda_handler(event, context):
             BODY_TEXT_ERROR = "Sorry, no supported attachments were found.  PLease try again with either jpeg or png"
 
 
-def send_return_mail(msg_from,msg_subject,BODY_TEXT_ERROR,detectedText, detectedLanguage, detectedSentiment):
+def send_return_mail(msg_from,msg_subject,BODY_TEXT_ERROR,detectedText, detectedLanguage, detectedSentiment, translatedText):
 
     SENDER = "AI Hackathon <AIHackathon@perrie.uk>"
     RECIPIENT = msg_from
@@ -68,6 +70,7 @@ def send_return_mail(msg_from,msg_subject,BODY_TEXT_ERROR,detectedText, detected
                 "" + BODY_TEXT_ERROR + "\n"
                 "The recognized text was : " + detectedText + "\n"
                 "The detected language was : " + detectedLanguage + "\n"
+                "The text translated into English is : " + translatedText + "\n"
                 "The sentiment of the text is : " + detectedSentiment + "\n"
                 "\n \n"
                 "Note: No messages to this address are stored or retained.  All mails and attachments have been deleted after processing."
@@ -82,6 +85,7 @@ def send_return_mail(msg_from,msg_subject,BODY_TEXT_ERROR,detectedText, detected
       <p> """ + BODY_TEXT_ERROR + """ </p>
       <p>The recognized text was : """ + detectedText + """ </p>
       <p>The detected language was : """ + detectedLanguage + """ </p>
+      <p>The text translated into English is : """ + translatedText + """ </p>
       <p>The sentiment of the text is : """ + detectedSentiment + """ </p>
       <p></p>
       <p>Note: No messages to this address are stored or retained.  All mails and attachments have been deleted after processing.</p>
@@ -169,3 +173,14 @@ def cleanup_files(s3bucket,s3object,s3bucketTemp,filename):
 
 
     return
+
+def translate_text(detectedText, detectedLanguage):
+    translate = boto3.client(service_name='translate', region_name='eu-west-1', use_ssl=True)
+
+    if detectedLanguage in ('ar','zh','zh-TW','cs','fr','de','it','ja','pt','ru','es','tr'):
+        translatedText = translate.translate_text(Text=detectedText, SourceLanguageCode=detectedLanguage, TargetLanguageCode="en")
+
+    else:
+        translatedText = 'Sorry, I couldn\'t translate the text'
+
+    return translatedText['TranslatedText']
