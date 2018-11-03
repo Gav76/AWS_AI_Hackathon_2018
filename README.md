@@ -47,3 +47,15 @@ The sentiment of the text is : Sorry, only English and Spanish are currently sup
 
 Note: No messages to this address are stored or retained. All mails and attachments have been deleted after processing.
 ```
+
+## Configuration
+
+Create two s3 buckets, _BucketName_ and _BucketName-temp_
+
+Create an IAM role and attach the IAM_Policy
+
+Create the Lambda function, increasing the timeout to 90s
+
+Configure an Action on the S3 bucket to call the Lambda function on _Create Object_
+
+In SES, Verify a new Domain and then Verify the receiving email address.  _Note: After testing you need to request the limit on sending only to verified addresses is lifted  See : https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html _
