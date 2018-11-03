@@ -31,17 +31,19 @@ Hi,
 
 Thanks for using the AI Hackathon tool, your results are below.
 
-The original message was received from : sender name
+The original message was received from : Sender Name
 
-The original message had the subject : MovieReview
+The original message had the subject : FW: echo
 
-I found the file : moviereview.png
+I found the file : echo.png
 
-The recognized text was : 10/10 This old Marines thoughts silvaback-13517 8 October 2018 I did not want to watch this movie but took my wife to see it, because we both saw the one with Kris Kristofferson and Barbra Streisand, growing up. The crowd was a lot older than we were(we are almost 50)
+The recognized text was : Amazon Echo verfugt uber Tausende Skills und es kommen standig neue dazu. Mit Skills werden noch mehr Funktionen hinzugefugt, wie ein Taxi von mytaxi bestellen, Fitnesstracking mit Fitbit, neue Rezepte entdecken mit Chefkoch, Zugfahrplane abrufen mit Deutsche Bahn und mehr. Um neue Skills zu aktivieren, fragen Sie einfach Alexa.
 
-The detected language was : en
+The detected language was : de
 
-The sentiment of the text is : NEUTRAL
+The text translated into English is : Amazon Echo has thousands of skills and new skills. Skills add more features such as ordering a taxi from mytaxi, fitness tracking with Fitbit, discovering new recipes with Chef, retrieving a train tarpaulin with Deutsche Bahn and more. To activate new skills, just ask Alexa.
+
+The sentiment of the text is : Sorry, only English and Spanish are currently supported for sentiment detection
 
 Note: No messages to this address are stored or retained. All mails and attachments have been deleted after processing.
 ```
