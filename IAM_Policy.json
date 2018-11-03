@@ -1,0 +1,107 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Sid": "Lambda0",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateFunction",
+                "lambda:UpdateEventSourceMapping",
+                "lambda:ListFunctions",
+                "lambda:GetEventSourceMapping",
+                "lambda:ListEventSourceMappings",
+                "lambda:GetAccountSettings",
+                "lambda:CreateEventSourceMapping",
+                "lambda:DeleteEventSourceMapping"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Lambda1",
+            "Effect": "Allow",
+            "Action": "lambda:*",
+            "Resource": "arn:aws:lambda:eu-west-1:000000000000:function:AIHackathon2018-IncomingEmail"
+        },
+        {
+            "Sid": "S30",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:HeadBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "S31",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket/*",
+                "arn:aws:s3:::bucket-temp/*",
+                "arn:aws:s3:::bucket-2018",
+                "arn:aws:s3:::bucket-temp"
+            ]
+        },
+         {
+            "Sid": "SES",
+            "Effect": "Allow",
+            "Action": "ses:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Cloudwatch0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeExportTasks",
+                "logs:DeleteResourcePolicy",
+                "logs:PutResourcePolicy",
+                "logs:PutDestinationPolicy",
+                "logs:CancelExportTask",
+                "logs:TestMetricFilter",
+                "logs:DeleteDestination",
+                "logs:PutDestination",
+                "logs:CreateLogGroup",
+                "logs:DescribeResourcePolicies",
+                "logs:DescribeDestinations"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Cloudwatch1",
+            "Effect": "Allow",
+            "Action": "logs:*",
+            "Resource": "arn:aws:logs:*:*:log-group:*:*:*"
+        },
+        {
+            "Sid": "Cloudwatch2",
+            "Effect": "Allow",
+            "Action": "logs:*",
+            "Resource": "arn:aws:logs:*:*:log-group:*"
+        },
+        {
+            "Sid": "AWSComprehend",
+            "Effect": "Allow",
+            "Action": [
+                "comprehend:DetectSentiment",
+                "comprehend:DetectDominantLanguage"
+            ],
+            "Resource": "*"
+        },
+         {
+            "Sid": "AWSRekognition",
+            "Effect": "Allow",
+            "Action": [
+                "rekognition:DetectText",
+                "rekognition:GetLabelDetection"
+            ],
+            "Resource": "*"
+        },
+         {
+            "Sid": "AWSTranslate",
+            "Effect": "Allow",
+            "Action": "translate:TranslateText",
+            "Resource": "*"
+        }
+
+
+        ]
+}
