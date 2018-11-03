@@ -1,14 +1,21 @@
 # AWS_AI_Hackathon_2018
-PoCing an entry for the AI challenge
+This is the repo for entry into the [AWS AI Hackathon](https://aws.amazon.com/machine-learning/2018-Q3-ai-hackathon/)
 
-## Stream data into S3
-Using firehose, stream data into an S3 bucket
+The basic premise was to build a pipeline where you can provide an image containing some text and have the text extracted, language identified, sentiment evaluated and a translation into English provided if needed.  There are some real-world use-cases where this could be useful, ie.
 
-## Analyze data with AWS Comprehend
-Perform sentiment analysis on streamed data sets
+### Tools used
+Python
+AWS Lambda
+AWS Rekognition
+AWS Comprehend
+AWS Simple Email Service (SES)
+AWS S3
 
-## Identify celebrity from picture
-Use Rekognition to identify celebrity 
+## Flow
 
-## Visualize results
-Some front end magic
+![alt text][workflow.png]
+
+### Known Limitations.
+The [AWS Rekognition Detect Text Action](https://docs.aws.amazon.com/rekognition/latest/dg/text-detection.html) can only detect 50 words from a single image.
+
+##
