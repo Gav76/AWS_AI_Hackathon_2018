@@ -1,7 +1,8 @@
 # AWS_AI_Hackathon_2018
 This is the repo for entry into the [AWS AI Hackathon](https://aws.amazon.com/machine-learning/2018-Q3-ai-hackathon/)
 
-The basic premise was to build a pipeline where you can provide an image containing some text and have the text extracted, language identified, sentiment evaluated and a translation into English provided if needed.  There are some real-world use-cases where this could be useful, ie.
+The basic premise was to build a pipeline where you can provide an image containing some text and have the text extracted, language identified, sentiment evaluated and a translation into English provided if needed.  There are some real-world use-cases where this could be useful, ie. taking a picture of the whiteboard after a meeting to have a record of the discussion and use the text for indexing.  Or seeing an article about a favourite celebrity in a foreign language and finding out what it says about them.
+
 
 ### Tools used
 1. Python
