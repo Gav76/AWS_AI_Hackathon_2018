@@ -80,15 +80,15 @@ def send_return_mail(msg_from,msg_subject,BODY_TEXT_ERROR,detectedText, detected
     <body>
       <p>Hi,</p>
       <p>Thanks for using the AI Hackathon tool, your results are below. </p>
-      <p>The original message was received from : """ + msg_from + """ </p>
-      <p>The original message had the subject : """ + msg_subject + """ </p>
-      <p> """ + BODY_TEXT_ERROR + """ </p>
-      <p>The recognized text was : """ + detectedText + """ </p>
-      <p>The detected language was : """ + detectedLanguage + """ </p>
-      <p>The text translated into English is : """ + translatedText + """ </p>
-      <p>The sentiment of the text is : """ + detectedSentiment + """ </p>
+      <p>The original message was received from : <b>""" + msg_from + """ </b></p>
+      <p>The original message had the subject : <b>""" + msg_subject + """ </b></p>
+      <p><b> """ + BODY_TEXT_ERROR + """ </b></p>
+      <p>The recognized text was : <b>""" + detectedText + """ </b></p>
+      <p>The detected language was : <b>""" + detectedLanguage + """ </b></p>
+      <p>The text translated into English is : <b>""" + translatedText + """ </b></p>
+      <p>The sentiment of the text is : <b>""" + detectedSentiment + """ </b></p>
       <p></p>
-      <p>Note: No messages to this address are stored or retained.  All mails and attachments have been deleted after processing.</p>
+      <p><b>Note:</b> No messages sent to this address are stored or retained.  All mails and attachments have been deleted after processing.</p>
     </body>
     </html>
                 """
@@ -179,8 +179,12 @@ def translate_text(detectedText, detectedLanguage):
 
     if detectedLanguage in ('ar','zh','zh-TW','cs','fr','de','it','ja','pt','ru','es','tr'):
         translatedText = translate.translate_text(Text=detectedText, SourceLanguageCode=detectedLanguage, TargetLanguageCode="en")
+        return translatedText['TranslatedText']
+
+    elif detectedLanguage = 'en':
+        translatedText = 'It\'s already English, nothing to do'
+        return translatedText
 
     else:
         translatedText = 'Sorry, I couldn\'t translate the text'
-
-    return translatedText['TranslatedText']
+        return translatedText
